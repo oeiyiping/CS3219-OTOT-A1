@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+  nodeapp:
+    restart: on-failure
+    build: ./app
+    ports:
+      - '81:8080'
+  nginx:
+    build: ./nginx-sample
+    ports:
+    - '80:80'
+    depends_on:
+    - nodeapp
